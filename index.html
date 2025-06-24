@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game With The Boys</title>
+<style>
+  body {
+    background: #000;
+    color: red;
+    font-family: Arial, sans-serif;
+    padding: 1.5rem;
+    max-width: 800px;
+    margin: auto;
+    font-size: 1.2rem;
+  }
+  h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  h2 {
+    font-size: 1.8rem;
+    margin-top: 2rem;
+  }
+  label {
+    cursor: pointer;
+    display: block;
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+  }
+  input[type="checkbox"] {
+    transform: scale(1.8); 
+    margin-right: 0.8rem;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+  button {
+    padding: 0.7rem 1.5rem;
+    margin-top: 1rem;
+    background: red;
+    color: black;
+    border: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .results {
+    margin-top: 2rem;
+    padding: 1rem;
+    border: 2px solid red;
+    font-size: 1.4rem;
+  }
+  ul {
+    padding-left: 1.2rem;
+  }
+  li {
+    margin: 0.3rem 0;
+  }
+</style>
+</head>
+<body>
+
+<h1>🎮 Game With The Boys 🎮</h1>
+
+<h2>Who's playing?</h2>
+<label><input type="checkbox" class="available" data-player="red"> Red</label>
+<label><input type="checkbox" class="available" data-player="dragon"> Dragon</label>
+<label><input type="checkbox" class="available" data-player="grain"> Grain</label>
+<label><input type="checkbox" class="available" data-player="taylor"> Taylor</label>
+
+<button id="findGames">Find Common Games</button>
+
+<div class="results" id="results"></div>
+
+<script>
+  // Player libraries
+  const playerLibraries = {
+    red: [
+      "Call of Duty","Baldur's Gate 3","Genshin Impact","Battlefield 2042","Sea of Thieves","Fortnite",
+      "Hunt Showdown","Marvel Rivals","Overwatch 2","Space Marine 2","Monster Hunter Wilds","Dead by Daylight",
+      "For Honor","Bleach: Rebirth of Souls","Halo Wars","Halo Wars 2","No Man's Sky","Chivalry 2",
+      "Elden Ring: Nightregin","Multiversus","Gigantic","Stellaris","Synduality","Skull and Bones","Gears 5",
+      "Roller Champions","Warlander","Aragami 2","My Hero Ultra Rumble","Fall Guys","Deep Rock Galactic",
+      "Risk of Rain 2","33 Immortals"
+    ],
+    dragon: [
+      "Baldur's Gate 3","Battlefield 2042","Fortnite","Marvel Rivals","Space Marine 2","Monster Hunter Wilds",
+      "For Honor","Bleach: Rebirth of Souls","Halo Wars","Halo Wars 2","No Man's Sky","Chivalry 2",
+      "Elden Ring: Nightregin","Gigantic","Warlander","Aragami 2","Fall Guys","Deep Rock Galactic","Risk of Rain 2"
+    ],
+    grain: [
+      "Battlefield 2042","Sea of Thieves","Fortnite","Hunt Showdown","Overwatch 2","Dead by Daylight",
+      "Chivalry 2","Roller Champions","Fall Guys","Deep Rock Galactic","33 Immortals"
+    ],
+    taylor: [
+      "Baldur's Gate 3","Genshin Impact","Sea of Thieves","Space Marine 2","Monster Hunter Wilds",
+      "Deep Rock Galactic","Risk of Rain 2","Stellaris"
+    ]
+  };
+  
+  // Game info (maximum players)
+  const gameInfo = {
+    "Call of Duty": 4,
+    "Baldur's Gate 3": 4,
+    "Genshin Impact": 4,
+    "Battlefield 2042": 4,
+    "Sea of Thieves": 4,
+    "Fortnite": 4,
+    "Hunt Showdown": 3,
+    "Marvel Rivals": 6,
+    "Overwatch 2": 5,
+    "Space Marine 2": 3,
+    "Monster Hunter Wilds": 4,
+    "Dead by Daylight": 4,
+    "For Honor": 4,
+    "Bleach: Rebirth of Souls": 2,
+    "Halo Wars": 3,
+    "Halo Wars 2": 3,
+    "No Man's Sky": 4,
+    "Chivalry 2": 4,
+    "Elden Ring: Nightregin": 3,
+    "Multiversus": 4,
+    "Gigantic": 5,
+    "Stellaris": 5,
+    "Synduality": 4,
+    "Skull and Bones": 3,
+    "Gears 5": 5,
+    "Roller Champions": 3,
+    "Warlander": 4,
+    "Aragami 2": 3,
+    "My Hero Ultra Rumble": 3,
+    "Fall Guys": 4,
+    "Deep Rock Galactic": 4,
+    "Risk of Rain 2": 4,
+    "33 Immortals": 3
+  };
+  
+  document.getElementById('findGames').addEventListener('click', () => {
+    const availableCheckboxes = document.querySelectorAll('.available:checked');
+    const selectedPlayers = Array.from(availableCheckboxes).map(cb => cb.dataset.player);
+    const numPlayers = selectedPlayers.length;
+
+    if (numPlayers === 0) {
+      document.getElementById('results').innerText = 'Please select at least one player.';
+      return;
+    }
+
+    const gameLists = selectedPlayers.map(playerId => playerLibraries[playerId]);
+    const commonGames = gameLists.reduce((common, list) => common.filter(g => list.includes(g)));
+
+    const validGames = commonGames.filter(game => numPlayers <= gameInfo[game]);
+
+    document.getElementById('results').innerHTML = validGames.length
+      ? '<strong>Games you have in common:</strong><ul><li>' +
+        validGames.join('</li><li>') + '</li></ul>'
+      : 'No common games support ' + numPlayers + ' players.';
+  });
+</script>
+
+</body>
+</html>
