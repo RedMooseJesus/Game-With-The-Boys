@@ -74,7 +74,6 @@
 <div class="results" id="results"></div>
 
 <script>
-  // Player libraries
   const playerLibraries = {
     red: [
       "Call of Duty","Baldur's Gate 3","Genshin Impact","Battlefield 2042","Sea of Thieves","Fortnite",
@@ -87,11 +86,13 @@
     dragon: [
       "Baldur's Gate 3","Battlefield 2042","Fortnite","Marvel Rivals","Space Marine 2","Monster Hunter Wilds",
       "For Honor","Bleach: Rebirth of Souls","Halo Wars","Halo Wars 2","No Man's Sky","Chivalry 2",
-      "Elden Ring: Nightregin","Gigantic","Warlander","Aragami 2","Fall Guys","Deep Rock Galactic","Risk of Rain 2"
+      "Elden Ring: Nightregin","Gigantic","Warlander","Aragami 2","Fall Guys","Deep Rock Galactic","Risk of Rain 2",
+      "Assassin's Creed Unity","Minecraft"
     ],
     grain: [
       "Battlefield 2042","Sea of Thieves","Fortnite","Hunt Showdown","Overwatch 2","Dead by Daylight",
-      "Chivalry 2","Roller Champions","Fall Guys","Deep Rock Galactic","33 Immortals"
+      "Chivalry 2","Roller Champions","Fall Guys","Deep Rock Galactic","33 Immortals",
+      "Assassin's Creed Unity","Battlefield 1","Minecraft","For Honor"
     ],
     taylor: [
       "Baldur's Gate 3","Genshin Impact","Sea of Thieves","Space Marine 2","Monster Hunter Wilds",
@@ -99,7 +100,6 @@
     ]
   };
   
-  // Game info (maximum players)
   const gameInfo = {
     "Call of Duty": 4,
     "Baldur's Gate 3": 4,
@@ -133,27 +133,24 @@
     "Fall Guys": 4,
     "Deep Rock Galactic": 4,
     "Risk of Rain 2": 4,
-    "33 Immortals": 3
+    "33 Immortals": 3,
+    "Assassin's Creed Unity": 3,
+    "Battlefield 1": 5,
+    "Minecraft": 4
   };
   
   document.getElementById('findGames').addEventListener('click', () => {
-    const availableCheckboxes = document.querySelectorAll('.available:checked');
-    const selectedPlayers = Array.from(availableCheckboxes).map(cb => cb.dataset.player);
+    const selectedPlayers = Array.from(document.querySelectorAll('.available:checked')).map(cb => cb.dataset.player);
     const numPlayers = selectedPlayers.length;
-
     if (numPlayers === 0) {
       document.getElementById('results').innerText = 'Please select at least one player.';
       return;
     }
-
-    const gameLists = selectedPlayers.map(playerId => playerLibraries[playerId]);
+    const gameLists = selectedPlayers.map(p => playerLibraries[p]);
     const commonGames = gameLists.reduce((common, list) => common.filter(g => list.includes(g)));
-
     const validGames = commonGames.filter(game => numPlayers <= gameInfo[game]);
-
     document.getElementById('results').innerHTML = validGames.length
-      ? '<strong>Games you have in common:</strong><ul><li>' +
-        validGames.join('</li><li>') + '</li></ul>'
+      ? '<strong>Games you have in common:</strong><ul><li>' + validGames.join('</li><li>') + '</li></ul>'
       : 'No common games support ' + numPlayers + ' players.';
   });
 </script>
