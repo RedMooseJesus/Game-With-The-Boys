@@ -76,67 +76,42 @@
 <script>
   const playerLibraries = {
     red: [
-      "Call of Duty","Baldur's Gate 3","Genshin Impact","Battlefield 2042","Sea of Thieves","Fortnite",
-      "Hunt Showdown","Marvel Rivals","Overwatch 2","Space Marine 2","Monster Hunter Wilds","Dead by Daylight",
-      "For Honor","Bleach: Rebirth of Souls","Halo Wars","Halo Wars 2","No Man's Sky","Chivalry 2",
-      "Elden Ring: Nightregin","Multiversus","Gigantic","Stellaris","Synduality","Skull and Bones","Gears 5",
-      "Roller Champions","Warlander","Aragami 2","My Hero Ultra Rumble","Fall Guys","Deep Rock Galactic",
-      "Risk of Rain 2","33 Immortals"
+      "33 Immortals","Aragami 2","Baldur's Gate 3","Battlefield 2042","Black Ops 6","Bleach: Rebirth of Souls","Chivalry 2",
+      "Dead by Daylight","Deep Rock Galactic","Elden Ring: Nightregin","Fall Guys","For Honor","Fortnite","Gears 5","Genshin Impact",
+      "Halo Wars","Halo Wars 2","Hunt Showdown","Marvel Rivals","Multiversus","No Man's Sky","Overwatch 2","Risk of Rain 2",
+      "Roller Champions","Sea of Thieves","Skull and Bones","Space Marine 2","Stellaris","Synduality","Warlander"
     ],
     dragon: [
-      "Baldur's Gate 3","Battlefield 2042","Fortnite","Marvel Rivals","Space Marine 2","Monster Hunter Wilds",
-      "For Honor","Bleach: Rebirth of Souls","Halo Wars","Halo Wars 2","No Man's Sky","Chivalry 2",
-      "Elden Ring: Nightregin","Gigantic","Warlander","Aragami 2","Fall Guys","Deep Rock Galactic","Risk of Rain 2",
-      "Assassin's Creed Unity","Minecraft"
+      "Alien vs Predator","Aragami 2","Assassin's Creed Black Flag","Astroneer","Baldur's Gate 3","Battlefield 2042","Black Ops 2",
+      "Black Ops 6","Bleach: Rebirth of Souls","Borderlands 3","Brawlhalla","Chivalry 2","Darkness 2","Deep Rock Galactic","Elden Ring: Nightregin",
+      "Epic Mickey 2","Fall Guys","For Honor","Fortnite","Ghost Recon: Future Soldier","Gigantic","Halo Wars","Halo Wars 2","Lost Planet 2",
+      "Marvel Rivals","Metal Gear Solid V","Minecraft","Monster Hunter Wilds","MtG: Duels of the Plainswalkers","My Hero Ultra Rumble","Naruto Storm 4",
+      "No Man's Sky","Overcooked 2","Overwatch 2","Palworld","Portal 2","Red Dead Redemption 2","Red Faction: Guerilla","Risk of Rain 2","Roblox",
+      "Sea of Thieves","Space Engineers","Space Marine 2","Space Marine Mastercrafted Edition","Splinter Cell: Blacklist","Split Fiction",
+      "Star Wars Battlefront 2","State of Decay 2","Titanfall 2","Tron Evolution","Trove","UFC 5","Unravel 2","Warlander"
     ],
     grain: [
-      "Battlefield 2042","Sea of Thieves","Fortnite","Hunt Showdown","Overwatch 2","Dead by Daylight",
-      "Chivalry 2","Roller Champions","Fall Guys","Deep Rock Galactic","33 Immortals",
-      "Assassin's Creed Unity","Battlefield 1","Minecraft","For Honor"
+      "33 Immortals","Assassin's Creed Unity","Battlefield 1","Battlefield 2042","Chivalry 2","Dead by Daylight","Deep Rock Galactic","Fall Guys","For Honor",
+      "Fortnite","Hunt Showdown","Minecraft","Overwatch 2","Roller Champions","Sea of Thieves"
     ],
     taylor: [
-      "Baldur's Gate 3","Genshin Impact","Sea of Thieves","Space Marine 2","Monster Hunter Wilds",
-      "Deep Rock Galactic","Risk of Rain 2","Stellaris"
+      "Baldur's Gate 3","Borderlands 3","Dead by Daylight","Deep Rock Galactic","Elden Ring","ExoPrimal","Genshin Impact","Grounded","Gunfire Reborn",
+      "Monster Hunter Wilds","Risk of Rain 2","Sea of Thieves","Smite","Space Marine 2","Stellaris","Street Fighter 6","Warhammer: Darktide","Wild Hearts","World War Z"
     ]
   };
   
   const gameInfo = {
-    "Call of Duty": 4,
-    "Baldur's Gate 3": 4,
-    "Genshin Impact": 4,
-    "Battlefield 2042": 4,
-    "Sea of Thieves": 4,
-    "Fortnite": 4,
-    "Hunt Showdown": 3,
-    "Marvel Rivals": 6,
-    "Overwatch 2": 5,
-    "Space Marine 2": 3,
-    "Monster Hunter Wilds": 4,
-    "Dead by Daylight": 4,
-    "For Honor": 4,
-    "Bleach: Rebirth of Souls": 2,
-    "Halo Wars": 3,
-    "Halo Wars 2": 3,
-    "No Man's Sky": 4,
-    "Chivalry 2": 4,
-    "Elden Ring: Nightregin": 3,
-    "Multiversus": 4,
-    "Gigantic": 5,
-    "Stellaris": 5,
-    "Synduality": 4,
-    "Skull and Bones": 3,
-    "Gears 5": 5,
-    "Roller Champions": 3,
-    "Warlander": 4,
-    "Aragami 2": 3,
-    "My Hero Ultra Rumble": 3,
-    "Fall Guys": 4,
-    "Deep Rock Galactic": 4,
-    "Risk of Rain 2": 4,
-    "33 Immortals": 3,
-    "Assassin's Creed Unity": 3,
-    "Battlefield 1": 5,
-    "Minecraft": 4
+    "33 Immortals": 3,"Alien vs Predator": 4,"Aragami 2": 3,"Assassin's Creed Black Flag": 4,"Assassin's Creed Unity": 3,"Astroneer": 4,
+    "Baldur's Gate 3": 4,"Battlefield 1": 5,"Battlefield 2042": 4,"Black Ops 2": 4,"Black Ops 6": 4,"Bleach: Rebirth of Souls": 2,"Borderlands 3": 4,
+    "Brawlhalla": 8,"Chivalry 2": 4,"Darkness 2": 4,"Dead by Daylight": 4,"Deep Rock Galactic": 4,"Elden Ring": 3,"Elden Ring: Nightregin": 3,
+    "Epic Mickey 2": 2,"ExoPrimal": 4,"Fall Guys": 4,"For Honor": 4,"Fortnite": 4,"Gears 5": 5,"Genshin Impact": 4,"Ghost Recon: Future Soldier": 4,
+    "Gigantic": 5,"Grounded": 4,"Gunfire Reborn": 4,"Halo Wars": 3,"Halo Wars 2": 3,"Hunt Showdown": 3,"Lost Planet 2": 4,"Marvel Rivals": 6,
+    "Metal Gear Solid V": 2,"Minecraft": 4,"Monster Hunter Wilds": 4,"MtG: Duels of the Plainswalkers": 4,"Multiversus": 4,"My Hero Ultra Rumble": 3,
+    "Naruto Storm 4": 2,"No Man's Sky": 4,"Overcooked 2": 4,"Overwatch 2": 5,"Palworld": 4,"Portal 2": 2,"Red Dead Redemption 2": 7,"Red Faction: Guerilla": 4,
+    "Risk of Rain 2": 4,"Roblox": 4,"Roller Champions": 3,"Sea of Thieves": 4,"Skull and Bones": 3,"Smite": 5,"Space Engineers": 16,"Space Marine 2": 3,
+    "Space Marine Mastercrafted Edition": 8,"Splinter Cell: Blacklist": 4,"Split Fiction": 2,"Star Wars Battlefront 2": 4,"State of Decay 2": 4,
+    "Stellaris": 5,"Street Fighter 6": 2,"Synduality": 4,"Titanfall 2": 6,"Tron Evolution": 10,"Trove": 8,"UFC 5": 2,"Unravel 2": 2,"Warhammer: Darktide": 4,
+    "Warlander": 4,"Wild Hearts": 3,"World War Z": 4
   };
   
   document.getElementById('findGames').addEventListener('click', () => {
